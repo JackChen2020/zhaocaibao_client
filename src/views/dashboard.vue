@@ -20,15 +20,6 @@
                         </div>
                     </div>
                     <div class="info" v-show="this.user.rolecode==4001">
-                        <div class="user-img">
-                            <span class="user-subtitle1">余额: ¥{{user.up_bal}}</span>
-                        </div>
-                        <div class="user-img">
-                            <span class="user-subtitle1">可提现余额: ¥{{(user.up_bal - user.bal - user.cashout_bal).toFixed(2)}}</span>
-                        </div>
-                        <div class="user-img">
-                            <span class="user-subtitle2">利润: ¥{{user.bal}}</span>
-                        </div>
                     </div>
                     <div class="info" v-show="this.user.rolecode==2001">
                         <div class="user-img">

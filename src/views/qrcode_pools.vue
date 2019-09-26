@@ -98,18 +98,10 @@
                     size:"mini",
                     column:[
                         {
-                            label:'微信昵称',
-                            prop:'name',
+                            label:'订单号',
+                            prop:'ordercode',
                             search:true,
-                            cell: true,
                             minWidth:140,
-                            rules: [
-                                {
-                                    required: true,
-                                    message: '请输入微信昵称',
-                                    trigger: 'blur'
-                                }
-                            ]
                         },
                         // {
                         //     label:'二维码',
@@ -144,21 +136,6 @@
                             label:'创建时间',
                             prop:'createtime',
                             minWidth:150,
-                        },
-                        {
-                            label:'当天流水',
-                            prop:'today_confirm_tot',
-                            minWidth:110,
-                        },
-                        {
-                            label:'总流水',
-                            prop:'confirm_tot',
-                            minWidth:110,
-                        },
-                        {
-                            label:'使用次数',
-                            prop:'usecount',
-                            minWidth:110,
                         }
                     ]
                 }

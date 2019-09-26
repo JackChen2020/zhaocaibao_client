@@ -1,22 +1,6 @@
 <template>
     <section class="main">
-        <el-form ref="FormObj" :model="request_data" label-width="100px">
-            <el-form-item label="二维码类型" :rules="{ required: true, message: '请选择二维码类型!', trigger: 'blur' }" placeholder="请选择二维码类型">
-                <el-select v-model="request_data.qrtype" placeholder="请选择二维码类型">
-                    <el-option v-for="item in FormObj2" :label="item.value" :value="item.name" :key="item.name"></el-option>
-                </el-select>
-            </el-form-item>
-            <el-form-item label="码商" :rules="{ required: true, message: '请选择码商!', trigger: 'blur' }" placeholder="请选择码商">
-                <el-select v-model="request_data.userid" placeholder="请选择码商">
-                    <el-option v-for="item in FormObj" :label="item.name" :value="item.userid" :key="item.userid"></el-option>
-                </el-select>
-            </el-form-item>
-            <el-form-item label="店员助手" v-show="isFlag" :rules="{ required: true, message: '请选择店员助手!', trigger: 'blur' }" placeholder="请选择店员助手">
-                <el-select v-model="request_data.wechathelper_id" placeholder="请选择店员助手">
-                    <el-option v-for="item in FormObj1" :label="item.name" :value="item.id" :key="item.id"></el-option>
-                </el-select>
-            </el-form-item>
-
+        <el-form ref="FormObj" :model="request_data" label-width="300px">
             <el-form-item label="上传二维码">
                 <el-upload
                         class="upload-demo"
@@ -40,35 +24,35 @@
         </el-form>
 
 
-        <avue-crud style="margin-left:100px;"
-                   :option="option"
-                   ref="crud"
-                   :page="page"
-                   @on-load="onLoad"
-                   :table-loading="loading"
-                   @refresh-change="refreshChange"
-                   :data="data"
-                   @row-update="rowUpdate"
-                   @search-change="searchChange"
-                   v-model="obj" >
-            <template slot-scope="scope" slot="menu">
-                <el-button
-                        type="primary"
-                        size="mini"
-                        @click="rowCell(scope.row,scope.index)"
-                >{{scope.row.$cellEdit?'保存':'修改'}}</el-button>
-                <el-button
-                        type="danger"
-                        size="mini"
-                        @click="rowDel(scope.row)"
-                >删除</el-button>
-                <el-button
-                        type="primary"
-                        size="mini"
-                        @click="rowOpen(scope.row)"
-                >启用</el-button>
-            </template>
-        </avue-crud>
+<!--        <avue-crud style="margin-left:100px;"-->
+<!--                   :option="option"-->
+<!--                   ref="crud"-->
+<!--                   :page="page"-->
+<!--                   @on-load="onLoad"-->
+<!--                   :table-loading="loading"-->
+<!--                   @refresh-change="refreshChange"-->
+<!--                   :data="data"-->
+<!--                   @row-update="rowUpdate"-->
+<!--                   @search-change="searchChange"-->
+<!--                   v-model="obj" >-->
+<!--            <template slot-scope="scope" slot="menu">-->
+<!--                <el-button-->
+<!--                        type="primary"-->
+<!--                        size="mini"-->
+<!--                        @click="rowCell(scope.row,scope.index)"-->
+<!--                >{{scope.row.$cellEdit?'保存':'修改'}}</el-button>-->
+<!--                <el-button-->
+<!--                        type="danger"-->
+<!--                        size="mini"-->
+<!--                        @click="rowDel(scope.row)"-->
+<!--                >删除</el-button>-->
+<!--                <el-button-->
+<!--                        type="primary"-->
+<!--                        size="mini"-->
+<!--                        @click="rowOpen(scope.row)"-->
+<!--                >启用</el-button>-->
+<!--            </template>-->
+<!--        </avue-crud>-->
     </section>
 </template>
 
@@ -119,9 +103,9 @@
                     size:"mini",
                     column:[
                         {
-                            label:'微信昵称',
+                            label:'订单号',
                             prop:'name',
-                            search:true,
+                            search:false,
                             cell: true,
                             minWidth:150,
                             rules: [
@@ -143,6 +127,10 @@
                         {
                             label:'状态',
                             prop:'statusname',
+                        },
+                        {
+                            label:'金额',
+                            prop:'amount',
                         },
                         {
                             label:'创建时间',
@@ -307,38 +295,38 @@
             //         this.paytypes=res.data.data
             //     }
             // })
-            get_qrtype({
-                "params":{
-                    "status" : "0",
-                    "page" : 1,
-                    "page_size" : 99999999,
-                    "type" : "3"
-                },
-                "callback": (res)=>{
-                    this.FormObj2=res.data.data
-                    console.log(this.FormObj2)
-                }
-            })
-            agent_query({
-                "params":{
-                    "status" : "0",
-                    "page" : 1,
-                    "page_size" : 99999999,
-                    "type" : "3"
-                },
-                "callback": (res)=>{
-                    this.FormObj=res.data.data
-                }
-            })
-            wechathelper_query({
-                "params":{
-                    "page" : 1,
-                    "page_size" : 99999999
-                },
-                "callback": (res)=>{
-                    this.FormObj1=res.data.data
-                }
-            })
+            // get_qrtype({
+            //     "params":{
+            //         "status" : "0",
+            //         "page" : 1,
+            //         "page_size" : 99999999,
+            //         "type" : "3"
+            //     },
+            //     "callback": (res)=>{
+            //         this.FormObj2=res.data.data
+            //         console.log(this.FormObj2)
+            //     }
+            // })
+            // agent_query({
+            //     "params":{
+            //         "status" : "0",
+            //         "page" : 1,
+            //         "page_size" : 99999999,
+            //         "type" : "3"
+            //     },
+            //     "callback": (res)=>{
+            //         this.FormObj=res.data.data
+            //     }
+            // })
+            // wechathelper_query({
+            //     "params":{
+            //         "page" : 1,
+            //         "page_size" : 99999999
+            //     },
+            //     "callback": (res)=>{
+            //         this.FormObj1=res.data.data
+            //     }
+            // })
         }
     }
 </script>
