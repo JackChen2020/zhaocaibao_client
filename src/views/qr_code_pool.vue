@@ -62,6 +62,7 @@
     import { get_qrcode,del_qrcode,upd_qrcode ,open_qrcode ,agent_query,wechathelper_query , get_qrtype,paytype_get} from '~/api/request/request'
 
     import { imgjoin } from '~/api/utils'
+    import { Loading } from 'element-ui';
 
     export default {
         data() {
@@ -72,6 +73,7 @@
                 paytypes:[],
                 isFlag:false,
                 fileList: [],
+                loadingInstance:false,
                 data : [],
                 obj:{},
                 loading:false,
@@ -80,7 +82,8 @@
                   name:''
                 },
                 request_data:{
-                    qrtype:''
+                    qrtype:'',
+                    token:localStorage.authorization,
                 },
                 page: {
                     // pageSizes: [2],
@@ -186,6 +189,9 @@
                 console.log(file);
             },
             handleSuccess( response, file, fileList ){
+                this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
+                    this.loadingInstance.close();
+                });
                 if ( response.rescode !== '10000' ){
                     this.$message.error(response.msg)
                 } else {
@@ -194,6 +200,7 @@
                 }
             },
             handlerProress(event, file, fileList){
+                this.loadingInstance = Loading.service({text:'上传中,请稍等!'});
                 console.log(fileList)
             },
             handlerUpload(file) {

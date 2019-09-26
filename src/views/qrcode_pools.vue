@@ -15,11 +15,6 @@
                 <el-button
                         type="primary"
                         size="mini"
-                        @click="rowCell(scope.row,scope.index)"
-                >{{scope.row.$cellEdit?'保存':'修改'}}</el-button>
-                <el-button
-                        type="primary"
-                        size="mini"
                         @click="rowStatus(scope.row)"
                 >启用</el-button>
                 <el-button
@@ -58,7 +53,7 @@
                 loading:false,
                 cellEdit: false,
                 filter: {
-                    name:'',
+                    ordercode:'',
                     status:''
                 },
                 page: {
@@ -70,7 +65,7 @@
                 option:{
                     page:false,
                     align:'center',
-                    showSummary:true,
+                    showSummary:false,
                     sumColumnList: [
                         {
                             name: 'today_confirm_tot',
@@ -179,7 +174,7 @@
                 this.QueryQrcode()
             },
             searchChange(params){
-                this.filter.name = params.name
+                this.filter.ordercode = params.ordercode
                 this.filter.status = params.statusname
                 console.log(this.filter)
                 this.QueryQrcode()
@@ -243,7 +238,7 @@
                         "status" : this.filter.status,
                         "page" : this.page.currentPage,
                         "page_size" : this.page.pageSize,
-                        "name" : this.filter.name,
+                        "ordercode" : this.filter.ordercode,
                         "userid" : this.$route.query.hasOwnProperty('id') ? this.$route.query.id : 0,
                         "wechathelper_id" : this.$route.query.hasOwnProperty('wechathelper_id') ? this.$route.query.wechathelper_id : 0,
                     },
@@ -252,7 +247,7 @@
                         res.data.data.forEach(item => {
                             this.data.push({
                                 path : imgjoin(item.path ),
-                                name : item.name,
+                                ordercode : item.ordercode,
                                 id : item.id,
                                 statusname : item.statusname,
                                 createtime : item.createtime,
