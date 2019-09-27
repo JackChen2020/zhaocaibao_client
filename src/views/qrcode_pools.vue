@@ -260,7 +260,8 @@
                                 today_confirm_tot : item.today_confirm_tot,
                                 all_tot : item.all_tot,
                                 today_all_tot: item.today_all_tot,
-                                usecount: item.usecount
+                                usecount: item.usecount,
+                                amount:item.amount,
                             })
                         })
                         this.page.total = Number(res.headers.total)
