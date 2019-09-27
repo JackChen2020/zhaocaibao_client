@@ -8,7 +8,7 @@ export default {
   handleUser(state,user){
     state.user = user
     try {
-      localStorage.setItem('user', JSON.stringify(user))
+      localStorage.setItem('user_zhaocaibao', JSON.stringify(user))
     } catch(e) {}
   },
   handleEditableTabsEx(state,editableTabs){
