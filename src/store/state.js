@@ -3,14 +3,14 @@ let defaultAuthorization = ''
 let defaultUser = {}
 
 try {
-  if (localStorage.authorization) {
-    defaultAuthorization = localStorage.authorization
+  if (localStorage.authorization_zhaocaibao) {
+    defaultAuthorization = localStorage.authorization_zhaocaibao
   }
 } catch(e) {}
 
 try {
-  if (localStorage.user) {
-    defaultUser = JSON.parse(window.localStorage.getItem('user'));
+  if (localStorage.user_zhaocaibao) {
+    defaultUser = JSON.parse(window.localStorage.getItem('user_zhaocaibao'));
   }
 } catch(e) {}
 

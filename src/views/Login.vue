@@ -99,7 +99,7 @@
       callBackhandleSubmit2(res){
         this.loginParams = true;
         this.token=res.headers.authorization;
-        localStorage.authorization=this.token
+        localStorage.authorization_zhaocaibao=this.token
 
         user_query({
           callback : (res) => {

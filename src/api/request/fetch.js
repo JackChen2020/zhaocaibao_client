@@ -10,7 +10,7 @@ function fetch (options) {
     const instance = axios.create({
       headers: {
         'Content-Type': 'application/json',
-        'Authorization' : localStorage.authorization,
+        'Authorization' : localStorage.authorization_zhaocaibao,
         'Encryption' : 'encryption'
       },
       timeout: 60 * 1000 // 30秒超时

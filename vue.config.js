@@ -6,13 +6,13 @@ function resolve (dir) {
 }
 
 //开发环境
-// const ServerUrl = "http://localhost:9001"
+const ServerUrl = "http://localhost:9001"
 
 // 测试环境
 // const ServerUrl = "http://47.244.129.198"
 
 // 生产环境
-const ServerUrl = "http://47.56.193.188:80"
+// const ServerUrl = "http://47.56.193.188:80"
 
 module.exports = {
     // 基本路径

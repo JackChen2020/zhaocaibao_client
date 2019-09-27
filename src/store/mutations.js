@@ -2,7 +2,7 @@ export default {
   handleAuthorization (state, authorization) {
     state.authorization = authorization
     try {
-      localStorage.authorization = authorization
+      localStorage.authorization_zhaocaibao = authorization
     } catch(e) {}
   },
   handleUser(state,user){

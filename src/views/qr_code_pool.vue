@@ -83,7 +83,7 @@
                 },
                 request_data:{
                     qrtype:'',
-                    token:localStorage.authorization,
+                    token:localStorage.authorization_zhaocaibao,
                 },
                 page: {
                     // pageSizes: [2],

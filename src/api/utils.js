@@ -45,7 +45,7 @@ export function filterAsyncRouter(asyncRouterMap) { //遍历后台传来的路�
 }
 
 export function getToken() {
-  return localStorage.getItem('authorization')
+  return localStorage.getItem('authorization_zhaocaibao')
 }
 
 export function setToken(token) {
