@@ -98,6 +98,11 @@
                             search:true,
                             minWidth:140,
                         },
+                        {
+                            label:'金额',
+                            prop:'amount',
+                            minWidth:140,
+                        },
                         // {
                         //     label:'二维码',
                         //     prop:'path',
