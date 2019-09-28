@@ -154,6 +154,11 @@
                             width:60
                         },
                         {
+                            label:'淘宝订单',
+                            prop:'tbdforder',
+                            width:120
+                        },
+                        {
                             label:'订单ID',
                             prop:'ordercode',
                             width:100
