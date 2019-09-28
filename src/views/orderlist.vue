@@ -160,7 +160,7 @@
                         {
                             label:'淘宝订单',
                             prop:'tbdforder',
-                            width:120
+                            width:180
                         },
                         {
                             label:'订单ID',
@@ -312,6 +312,7 @@
                     },
                     callback : (res) => {
                         this.data = res.data.data.data
+                        console.log(this.data)
                         this.page.total = Number(res.headers.total)
                         this.loading=false
                     }
