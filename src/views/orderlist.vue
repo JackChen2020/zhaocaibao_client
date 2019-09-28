@@ -15,6 +15,9 @@
             <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
                 <el-form  :model="filters" size="mini">
                     <el-form-item >
+                        <el-input v-model="filters.tbdforder" :clearable="true" placeholder="淘宝订单号"></el-input>
+                    </el-form-item>
+                    <el-form-item >
                         <el-input v-model="filters.ordercode" :clearable="true" placeholder="订单号"></el-input>
                     </el-form-item>
                     <el-form-item >
@@ -97,7 +100,8 @@
                     userid:'',
                     name:'',
                     down_status:'',
-                    passid:''
+                    passid:'',
+                    tbdforder:''
                 },
                 pickerOptions2: {
                     shortcuts: [{
@@ -303,7 +307,8 @@
                         no : this.filters.no,
                         userid: this.filters.userid,
                         down_status: this.filters.down_status,
-                        passid: this.filters.passid
+                        passid: this.filters.passid,
+                        tbdforder:this.filters.tbdforder
                     },
                     callback : (res) => {
                         this.data = res.data.data.data
